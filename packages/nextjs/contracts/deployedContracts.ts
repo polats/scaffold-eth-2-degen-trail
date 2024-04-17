@@ -6,243 +6,252 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
   31337: {
-    Bandit: {
-      address: "0x19b9E408ffCc239fAcc616fd709dEf6ad308d1a9",
+    ERC6551Account: {
+      address: "0x6E3F266d2c7406DDE6C8a11a5f00Ca7AFb53bCD3",
       abi: [
         {
           inputs: [
             {
-              internalType: "uint256",
-              name: "blocksToAct",
-              type: "uint256",
-            },
-            {
               internalType: "address",
-              name: "feeTokenAddress",
+              name: "to",
               type: "address",
             },
             {
               internalType: "uint256",
-              name: "rollFee",
+              name: "value",
               type: "uint256",
             },
             {
-              internalType: "uint256",
-              name: "rerollFee",
-              type: "uint256",
+              internalType: "bytes",
+              name: "data",
+              type: "bytes",
+            },
+            {
+              internalType: "uint8",
+              name: "operation",
+              type: "uint8",
             },
           ],
-          stateMutability: "nonpayable",
-          type: "constructor",
+          name: "execute",
+          outputs: [
+            {
+              internalType: "bytes",
+              name: "result",
+              type: "bytes",
+            },
+          ],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "hash",
+              type: "bytes32",
+            },
+            {
+              internalType: "bytes",
+              name: "signature",
+              type: "bytes",
+            },
+          ],
+          name: "isValidSignature",
+          outputs: [
+            {
+              internalType: "bytes4",
+              name: "magicValue",
+              type: "bytes4",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
         },
         {
           inputs: [
             {
               internalType: "address",
-              name: "target",
+              name: "signer",
+              type: "address",
+            },
+            {
+              internalType: "bytes",
+              name: "",
+              type: "bytes",
+            },
+          ],
+          name: "isValidSigner",
+          outputs: [
+            {
+              internalType: "bytes4",
+              name: "",
+              type: "bytes4",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "owner",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
               type: "address",
             },
           ],
-          name: "AddressEmptyCode",
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "state",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes4",
+              name: "interfaceId",
+              type: "bytes4",
+            },
+          ],
+          name: "supportsInterface",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "token",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          stateMutability: "payable",
+          type: "receive",
+        },
+      ],
+      inheritedFunctions: {
+        supportsInterface: "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+        isValidSignature: "@openzeppelin/contracts/interfaces/IERC1271.sol",
+      },
+    },
+    ERC6551Registry: {
+      address: "0x2a707eEbc9f5a3cE5fF6A2d4f79Ef985b86498fC",
+      abi: [
+        {
+          inputs: [],
+          name: "AccountCreationFailed",
           type: "error",
         },
         {
+          anonymous: false,
           inputs: [
             {
+              indexed: false,
               internalType: "address",
               name: "account",
               type: "address",
             },
-          ],
-          name: "AddressInsufficientBalance",
-          type: "error",
-        },
-        {
-          inputs: [],
-          name: "FailedInnerCall",
-          type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "tokenAddress",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "tokenID",
-              type: "uint256",
-            },
-          ],
-          name: "NFTDeadlineExceeded",
-          type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "player",
-              type: "address",
-            },
-            {
-              internalType: "address",
-              name: "tokenAddress",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "tokenID",
-              type: "uint256",
-            },
-          ],
-          name: "NFTNotOwnedByPlayer",
-          type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "player",
-              type: "address",
-            },
-          ],
-          name: "PlayerDeadlineExceeded",
-          type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "token",
-              type: "address",
-            },
-          ],
-          name: "SafeERC20FailedOperation",
-          type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "tokenAddress",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "tokenID",
-              type: "uint256",
-            },
-          ],
-          name: "WaitForNFTTick",
-          type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "player",
-              type: "address",
-            },
-          ],
-          name: "WaitForPlayerTick",
-          type: "error",
-        },
-        {
-          anonymous: false,
-          inputs: [
             {
               indexed: true,
               internalType: "address",
-              name: "tokenAddress",
-              type: "address",
-            },
-            {
-              indexed: true,
-              internalType: "uint256",
-              name: "tokenID",
-              type: "uint256",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "entropy",
-              type: "uint256",
-            },
-          ],
-          name: "NFTEntropyUsed",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "tokenAddress",
-              type: "address",
-            },
-            {
-              indexed: true,
-              internalType: "uint256",
-              name: "tokenID",
-              type: "uint256",
-            },
-          ],
-          name: "NFTRoll",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "player",
+              name: "implementation",
               type: "address",
             },
             {
               indexed: false,
+              internalType: "bytes32",
+              name: "salt",
+              type: "bytes32",
+            },
+            {
+              indexed: false,
               internalType: "uint256",
-              name: "entropy",
+              name: "chainId",
               type: "uint256",
             },
-          ],
-          name: "PlayerEntropyUsed",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
             {
               indexed: true,
               internalType: "address",
-              name: "player",
+              name: "tokenContract",
               type: "address",
             },
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "tokenId",
+              type: "uint256",
+            },
           ],
-          name: "PlayerRoll",
+          name: "ERC6551AccountCreated",
           type: "event",
         },
         {
-          inputs: [],
-          name: "BlocksToAct",
-          outputs: [
+          inputs: [
+            {
+              internalType: "address",
+              name: "implementation",
+              type: "address",
+            },
+            {
+              internalType: "bytes32",
+              name: "salt",
+              type: "bytes32",
+            },
             {
               internalType: "uint256",
-              name: "",
+              name: "chainId",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "tokenContract",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "tokenId",
               type: "uint256",
             },
           ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "FeeToken",
+          name: "account",
           outputs: [
             {
-              internalType: "contract IERC20",
+              internalType: "address",
               name: "",
               type: "address",
             },
@@ -254,140 +263,36 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "address",
-              name: "",
+              name: "implementation",
+              type: "address",
+            },
+            {
+              internalType: "bytes32",
+              name: "salt",
+              type: "bytes32",
+            },
+            {
+              internalType: "uint256",
+              name: "chainId",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "tokenContract",
               type: "address",
             },
             {
               internalType: "uint256",
-              name: "",
+              name: "tokenId",
               type: "uint256",
             },
           ],
-          name: "LastRollForNFT",
+          name: "createAccount",
           outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
             {
               internalType: "address",
               name: "",
               type: "address",
-            },
-          ],
-          name: "LastRollForPlayer",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "RerollFee",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "RollFee",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "tokenAddress",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "tokenID",
-              type: "uint256",
-            },
-          ],
-          name: "rerollForNFT",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "rerollForPlayer",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "tokenAddress",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "tokenID",
-              type: "uint256",
-            },
-          ],
-          name: "rollForNFT",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "rollForPlayer",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
             },
           ],
           stateMutability: "nonpayable",
@@ -396,410 +301,39 @@ const deployedContracts = {
       ],
       inheritedFunctions: {},
     },
-    FeeToken: {
-      address: "0x7EF6c35E1e5CBDFe9CCBcfd850F2C5384D4dB78B",
+    PermissionlessBindingERC721: {
+      address: "0x2b8e089770Bc76c82CAF7B6fBd73240E3B7455b0",
       abi: [
         {
           inputs: [
             {
               internalType: "string",
-              name: "_name",
+              name: "name_",
               type: "string",
             },
             {
               internalType: "string",
-              name: "_symbol",
+              name: "symbol_",
               type: "string",
             },
             {
-              internalType: "uint256",
-              name: "initialSupply",
-              type: "uint256",
-            },
-            {
               internalType: "address",
-              name: "owner",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "spender",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "allowance",
-              type: "uint256",
-            },
-            {
-              internalType: "uint256",
-              name: "needed",
-              type: "uint256",
-            },
-          ],
-          name: "ERC20InsufficientAllowance",
-          type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "sender",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "balance",
-              type: "uint256",
-            },
-            {
-              internalType: "uint256",
-              name: "needed",
-              type: "uint256",
-            },
-          ],
-          name: "ERC20InsufficientBalance",
-          type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "approver",
-              type: "address",
-            },
-          ],
-          name: "ERC20InvalidApprover",
-          type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "receiver",
-              type: "address",
-            },
-          ],
-          name: "ERC20InvalidReceiver",
-          type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "sender",
-              type: "address",
-            },
-          ],
-          name: "ERC20InvalidSender",
-          type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "spender",
-              type: "address",
-            },
-          ],
-          name: "ERC20InvalidSpender",
-          type: "error",
-        },
-        {
-          inputs: [],
-          name: "ZeroAddressNotAllowed",
-          type: "error",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "owner",
-              type: "address",
-            },
-            {
-              indexed: true,
-              internalType: "address",
-              name: "spender",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "value",
-              type: "uint256",
-            },
-          ],
-          name: "Approval",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "from",
-              type: "address",
-            },
-            {
-              indexed: true,
-              internalType: "address",
-              name: "to",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "value",
-              type: "uint256",
-            },
-          ],
-          name: "Transfer",
-          type: "event",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "owner",
+              name: "_tbaRegistryAddress",
               type: "address",
             },
             {
               internalType: "address",
-              name: "spender",
+              name: "_tbaImplementationAddress",
               type: "address",
             },
-          ],
-          name: "allowance",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "spender",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "value",
-              type: "uint256",
-            },
-          ],
-          name: "approve",
-          outputs: [
-            {
-              internalType: "bool",
-              name: "",
-              type: "bool",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "account",
-              type: "address",
-            },
-          ],
-          name: "balanceOf",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "decimals",
-          outputs: [
             {
               internalType: "uint8",
-              name: "",
+              name: "_decimals",
               type: "uint8",
             },
           ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "name",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "symbol",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "totalSupply",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "to",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "value",
-              type: "uint256",
-            },
-          ],
-          name: "transfer",
-          outputs: [
-            {
-              internalType: "bool",
-              name: "",
-              type: "bool",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "from",
-              type: "address",
-            },
-            {
-              internalType: "address",
-              name: "to",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "value",
-              type: "uint256",
-            },
-          ],
-          name: "transferFrom",
-          outputs: [
-            {
-              internalType: "bool",
-              name: "",
-              type: "bool",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {
-        allowance: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        approve: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        balanceOf: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        decimals: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        name: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        symbol: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        totalSupply: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        transfer: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        transferFrom: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-      },
-    },
-    NFT: {
-      address: "0x2a707eEbc9f5a3cE5fF6A2d4f79Ef985b86498fC",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "string",
-              name: "_name",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "_symbol",
-              type: "string",
-            },
-            {
-              internalType: "address",
-              name: "_admin",
-              type: "address",
-            },
-          ],
           stateMutability: "nonpayable",
           type: "constructor",
-        },
-        {
-          inputs: [],
-          name: "AccessControlBadConfirmation",
-          type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "account",
-              type: "address",
-            },
-            {
-              internalType: "bytes32",
-              name: "neededRole",
-              type: "bytes32",
-            },
-          ],
-          name: "AccessControlUnauthorizedAccount",
-          type: "error",
-        },
-        {
-          inputs: [],
-          name: "ERC721EnumerableForbiddenBatchMint",
-          type: "error",
         },
         {
           inputs: [
@@ -905,37 +439,6 @@ const deployedContracts = {
           type: "error",
         },
         {
-          inputs: [
-            {
-              internalType: "address",
-              name: "owner",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "index",
-              type: "uint256",
-            },
-          ],
-          name: "ERC721OutOfBoundsIndex",
-          type: "error",
-        },
-        {
-          inputs: [],
-          name: "InvalidBytes",
-          type: "error",
-        },
-        {
-          inputs: [],
-          name: "TokenTransferNotAllowed",
-          type: "error",
-        },
-        {
-          inputs: [],
-          name: "ZeroAddressNotAllowed",
-          type: "error",
-        },
-        {
           anonymous: false,
           inputs: [
             {
@@ -990,74 +493,30 @@ const deployedContracts = {
           inputs: [
             {
               indexed: true,
-              internalType: "bytes32",
-              name: "role",
-              type: "bytes32",
-            },
-            {
-              indexed: true,
-              internalType: "bytes32",
-              name: "previousAdminRole",
-              type: "bytes32",
-            },
-            {
-              indexed: true,
-              internalType: "bytes32",
-              name: "newAdminRole",
-              type: "bytes32",
-            },
-          ],
-          name: "RoleAdminChanged",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "bytes32",
-              name: "role",
-              type: "bytes32",
-            },
-            {
-              indexed: true,
               internalType: "address",
-              name: "account",
+              name: "minter",
               type: "address",
             },
             {
-              indexed: true,
+              indexed: false,
+              internalType: "uint256",
+              name: "newTokenId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
               internalType: "address",
-              name: "sender",
+              name: "tbaAddress",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "tberc20Address",
               type: "address",
             },
           ],
-          name: "RoleGranted",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "bytes32",
-              name: "role",
-              type: "bytes32",
-            },
-            {
-              indexed: true,
-              internalType: "address",
-              name: "account",
-              type: "address",
-            },
-            {
-              indexed: true,
-              internalType: "address",
-              name: "sender",
-              type: "address",
-            },
-          ],
-          name: "RoleRevoked",
+          name: "TBAMinted",
           type: "event",
         },
         {
@@ -1084,32 +543,6 @@ const deployedContracts = {
           ],
           name: "Transfer",
           type: "event",
-        },
-        {
-          inputs: [],
-          name: "DEFAULT_ADMIN_ROLE",
-          outputs: [
-            {
-              internalType: "bytes32",
-              name: "",
-              type: "bytes32",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "MINTER_ROLE",
-          outputs: [
-            {
-              internalType: "bytes32",
-              name: "",
-              type: "bytes32",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
         },
         {
           inputs: [
@@ -1150,12 +583,12 @@ const deployedContracts = {
         },
         {
           inputs: [],
-          name: "baseURI",
+          name: "decimals",
           outputs: [
             {
-              internalType: "string",
+              internalType: "uint8",
               name: "",
-              type: "string",
+              type: "uint8",
             },
           ],
           stateMutability: "view",
@@ -1183,110 +616,6 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "bytes32",
-              name: "role",
-              type: "bytes32",
-            },
-          ],
-          name: "getRoleAdmin",
-          outputs: [
-            {
-              internalType: "bytes32",
-              name: "",
-              type: "bytes32",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "role",
-              type: "bytes32",
-            },
-            {
-              internalType: "uint256",
-              name: "index",
-              type: "uint256",
-            },
-          ],
-          name: "getRoleMember",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "role",
-              type: "bytes32",
-            },
-          ],
-          name: "getRoleMemberCount",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "role",
-              type: "bytes32",
-            },
-            {
-              internalType: "address",
-              name: "account",
-              type: "address",
-            },
-          ],
-          name: "grantRole",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "role",
-              type: "bytes32",
-            },
-            {
-              internalType: "address",
-              name: "account",
-              type: "address",
-            },
-          ],
-          name: "hasRole",
-          outputs: [
-            {
-              internalType: "bool",
-              name: "",
-              type: "bool",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
               internalType: "address",
               name: "owner",
               type: "address",
@@ -1306,6 +635,58 @@ const deployedContracts = {
             },
           ],
           stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "to",
+              type: "address",
+            },
+          ],
+          name: "mint",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "tokenId",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "to",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "mintTokenboundERC20",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
@@ -1338,61 +719,6 @@ const deployedContracts = {
             },
           ],
           stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "role",
-              type: "bytes32",
-            },
-            {
-              internalType: "address",
-              name: "callerConfirmation",
-              type: "address",
-            },
-          ],
-          name: "renounceRole",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "role",
-              type: "bytes32",
-            },
-            {
-              internalType: "address",
-              name: "account",
-              type: "address",
-            },
-          ],
-          name: "revokeRole",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "_to",
-              type: "address",
-            },
-          ],
-          name: "safeMint",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "tokenId",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "nonpayable",
           type: "function",
         },
         {
@@ -1465,23 +791,23 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [
+          inputs: [],
+          name: "supply",
+          outputs: [
             {
-              internalType: "string",
-              name: "_baseUri",
-              type: "string",
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
             },
           ],
-          name: "setBaseURI",
-          outputs: [],
-          stateMutability: "nonpayable",
+          stateMutability: "view",
           type: "function",
         },
         {
           inputs: [
             {
               internalType: "bytes4",
-              name: "_interfaceId",
+              name: "interfaceId",
               type: "bytes4",
             },
           ],
@@ -1489,7 +815,7 @@ const deployedContracts = {
           outputs: [
             {
               internalType: "bool",
-              name: "isSupported",
+              name: "",
               type: "bool",
             },
           ],
@@ -1513,16 +839,42 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "uint256",
-              name: "index",
+              name: "",
               type: "uint256",
             },
           ],
-          name: "tokenByIndex",
+          name: "tba",
           outputs: [
             {
-              internalType: "uint256",
+              internalType: "address",
               name: "",
-              type: "uint256",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "tbaImplementationAddress",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "tbaRegistryAddress",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
             },
           ],
           stateMutability: "view",
@@ -1531,22 +883,17 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "address",
-              name: "owner",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "index",
-              type: "uint256",
-            },
-          ],
-          name: "tokenOfOwnerByIndex",
-          outputs: [
-            {
               internalType: "uint256",
               name: "",
               type: "uint256",
+            },
+          ],
+          name: "tberc20",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
             },
           ],
           stateMutability: "view",
@@ -1566,19 +913,6 @@ const deployedContracts = {
               internalType: "string",
               name: "",
               type: "string",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "totalSupply",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
             },
           ],
           stateMutability: "view",
@@ -1606,173 +940,6 @@ const deployedContracts = {
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
-        },
-      ],
-      inheritedFunctions: {
-        approve: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        balanceOf: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        getApproved: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        isApprovedForAll: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        name: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        ownerOf: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        safeTransferFrom: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        setApprovalForAll: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        supportsInterface: "@openzeppelin/contracts/access/extensions/AccessControlEnumerable.sol",
-        symbol: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        tokenByIndex: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        tokenOfOwnerByIndex: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        tokenURI: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        totalSupply: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        transferFrom: "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        DEFAULT_ADMIN_ROLE: "@openzeppelin/contracts/access/extensions/AccessControlEnumerable.sol",
-        getRoleAdmin: "@openzeppelin/contracts/access/extensions/AccessControlEnumerable.sol",
-        getRoleMember: "@openzeppelin/contracts/access/extensions/AccessControlEnumerable.sol",
-        getRoleMemberCount: "@openzeppelin/contracts/access/extensions/AccessControlEnumerable.sol",
-        grantRole: "@openzeppelin/contracts/access/extensions/AccessControlEnumerable.sol",
-        hasRole: "@openzeppelin/contracts/access/extensions/AccessControlEnumerable.sol",
-        renounceRole: "@openzeppelin/contracts/access/extensions/AccessControlEnumerable.sol",
-        revokeRole: "@openzeppelin/contracts/access/extensions/AccessControlEnumerable.sol",
-      },
-    },
-    YourContract: {
-      address: "0x09B35270bf8f1Bb782703796D4070BDAd05Cbbab",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "_owner",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "greetingSetter",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "newGreeting",
-              type: "string",
-            },
-            {
-              indexed: false,
-              internalType: "bool",
-              name: "premium",
-              type: "bool",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "value",
-              type: "uint256",
-            },
-          ],
-          name: "GreetingChange",
-          type: "event",
-        },
-        {
-          inputs: [],
-          name: "greeting",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "owner",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "premium",
-          outputs: [
-            {
-              internalType: "bool",
-              name: "",
-              type: "bool",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "string",
-              name: "_newGreeting",
-              type: "string",
-            },
-          ],
-          name: "setGreeting",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "totalCounter",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          name: "userGreetingCounter",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "withdraw",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          stateMutability: "payable",
-          type: "receive",
         },
       ],
       inheritedFunctions: {},
