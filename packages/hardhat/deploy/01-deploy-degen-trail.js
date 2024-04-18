@@ -39,8 +39,8 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         erc721.address, 
         signers[0]);
 
-    for (let i = 0; i < 3; i++) {
-        await erc721Signed.mint(deployer);
-    }   
-     
+    // for (let i = 0; i < 3; i++) {
+    //     await erc721Signed.mint(deployer);
+    // }   
+
 }

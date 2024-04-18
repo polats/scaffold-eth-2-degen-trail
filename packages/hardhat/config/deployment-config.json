@@ -6,7 +6,7 @@
             "owner": "0x0BC7220BbB82C10d88fb3469d5330B6522d7645D",
             "base_uri": "https://uri.npc.institute/"
         },
-        "FeeToken": {
+        "TestToken": {
               "initialSupply": "1000000000000000000000",
               "owner": "0x0BC7220BbB82C10d88fb3469d5330B6522d7645D",
               "name": "Fee Token",
@@ -18,14 +18,14 @@
             "rerollFee": "3"
         }
     },
-    "opsepolia": {
+    "sepolia": {
         "NFT": {
             "name": "yourNFT",
             "symbol": "YNFT",
             "owner": "0x0BC7220BbB82C10d88fb3469d5330B6522d7645D",
             "base_uri": "https://uri.npc.institute/"            
         },
-        "FeeToken": {
+        "TestToken": {
             "initialSupply": "1000000000000000000000",
             "owner": "0x0BC7220BbB82C10d88fb3469d5330B6522d7645D",
             "name": "Fee Token",

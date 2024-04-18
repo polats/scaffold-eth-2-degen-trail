@@ -1,0 +1,192 @@
+{
+  "address": "0x2a707eEbc9f5a3cE5fF6A2d4f79Ef985b86498fC",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "AccountCreationFailed",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "implementation",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "salt",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "chainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "tokenContract",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ERC6551AccountCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "implementation",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "salt",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "tokenContract",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "account",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "implementation",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "salt",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "tokenContract",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "createAccount",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xe6d37c0523da0d3644145aa89e6e991ef00ef1d621a5fabb8c05f0fde295022b",
+  "receipt": {
+    "to": null,
+    "from": "0x0BC7220BbB82C10d88fb3469d5330B6522d7645D",
+    "contractAddress": "0x2a707eEbc9f5a3cE5fF6A2d4f79Ef985b86498fC",
+    "transactionIndex": 27,
+    "gasUsed": "176589",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xf18ee32aff501e0c63e070f0ab9cdf5ba72c3df0b308b1b49beb6a125cca376c",
+    "transactionHash": "0xe6d37c0523da0d3644145aa89e6e991ef00ef1d621a5fabb8c05f0fde295022b",
+    "logs": [],
+    "blockNumber": 5725003,
+    "cumulativeGasUsed": "2987698",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "ceb196a420b9b90e161346bbd9322513",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"AccountCreationFailed\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"tokenContract\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ERC6551AccountCreated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"tokenContract\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"account\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"tokenContract\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"createAccount\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"errors\":{\"AccountCreationFailed()\":[{\"details\":\"The registry MUST revert with AccountCreationFailed error if the create2 operation fails.\"}]},\"events\":{\"ERC6551AccountCreated(address,address,bytes32,uint256,address,uint256)\":{\"details\":\"The registry MUST emit the ERC6551AccountCreated event upon successful account creation.\"}},\"kind\":\"dev\",\"methods\":{\"account(address,bytes32,uint256,address,uint256)\":{\"details\":\"Returns the computed token bound account address for a non-fungible token.\",\"returns\":{\"_0\":\"The address of the token bound account\"}},\"createAccount(address,bytes32,uint256,address,uint256)\":{\"details\":\"Creates a token bound account for a non-fungible token. If account has already been created, returns the account address without calling create2. Emits ERC6551AccountCreated event.\",\"returns\":{\"_0\":\"The address of the token bound account\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/erc6551/src/ERC6551Registry.sol\":\"ERC6551Registry\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/erc6551/src/ERC6551Registry.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.4;\\r\\n\\r\\ninterface IERC6551Registry {\\r\\n    /**\\r\\n     * @dev The registry MUST emit the ERC6551AccountCreated event upon successful account creation.\\r\\n     */\\r\\n    event ERC6551AccountCreated(\\r\\n        address account,\\r\\n        address indexed implementation,\\r\\n        bytes32 salt,\\r\\n        uint256 chainId,\\r\\n        address indexed tokenContract,\\r\\n        uint256 indexed tokenId\\r\\n    );\\r\\n\\r\\n    /**\\r\\n     * @dev The registry MUST revert with AccountCreationFailed error if the create2 operation fails.\\r\\n     */\\r\\n    error AccountCreationFailed();\\r\\n\\r\\n    /**\\r\\n     * @dev Creates a token bound account for a non-fungible token.\\r\\n     *\\r\\n     * If account has already been created, returns the account address without calling create2.\\r\\n     *\\r\\n     * Emits ERC6551AccountCreated event.\\r\\n     *\\r\\n     * @return account The address of the token bound account\\r\\n     */\\r\\n    function createAccount(\\r\\n        address implementation,\\r\\n        bytes32 salt,\\r\\n        uint256 chainId,\\r\\n        address tokenContract,\\r\\n        uint256 tokenId\\r\\n    ) external returns (address account);\\r\\n\\r\\n    /**\\r\\n     * @dev Returns the computed token bound account address for a non-fungible token.\\r\\n     *\\r\\n     * @return account The address of the token bound account\\r\\n     */\\r\\n    function account(\\r\\n        address implementation,\\r\\n        bytes32 salt,\\r\\n        uint256 chainId,\\r\\n        address tokenContract,\\r\\n        uint256 tokenId\\r\\n    ) external view returns (address account);\\r\\n}\\r\\n\\r\\ncontract ERC6551Registry is IERC6551Registry {\\r\\n    function createAccount(\\r\\n        address implementation,\\r\\n        bytes32 salt,\\r\\n        uint256 chainId,\\r\\n        address tokenContract,\\r\\n        uint256 tokenId\\r\\n    ) external returns (address) {\\r\\n        assembly {\\r\\n            // Memory Layout:\\r\\n            // ----\\r\\n            // 0x00   0xff                           (1 byte)\\r\\n            // 0x01   registry (address)             (20 bytes)\\r\\n            // 0x15   salt (bytes32)                 (32 bytes)\\r\\n            // 0x35   Bytecode Hash (bytes32)        (32 bytes)\\r\\n            // ----\\r\\n            // 0x55   ERC-1167 Constructor + Header  (20 bytes)\\r\\n            // 0x69   implementation (address)       (20 bytes)\\r\\n            // 0x5D   ERC-1167 Footer                (15 bytes)\\r\\n            // 0x8C   salt (uint256)                 (32 bytes)\\r\\n            // 0xAC   chainId (uint256)              (32 bytes)\\r\\n            // 0xCC   tokenContract (address)        (32 bytes)\\r\\n            // 0xEC   tokenId (uint256)              (32 bytes)\\r\\n\\r\\n            // Silence unused variable warnings\\r\\n            pop(chainId)\\r\\n\\r\\n            // Copy bytecode + constant data to memory\\r\\n            calldatacopy(0x8c, 0x24, 0x80) // salt, chainId, tokenContract, tokenId\\r\\n            mstore(0x6c, 0x5af43d82803e903d91602b57fd5bf3) // ERC-1167 footer\\r\\n            mstore(0x5d, implementation) // implementation\\r\\n            mstore(0x49, 0x3d60ad80600a3d3981f3363d3d373d3d3d363d73) // ERC-1167 constructor + header\\r\\n\\r\\n            // Copy create2 computation data to memory\\r\\n            mstore8(0x00, 0xff) // 0xFF\\r\\n            mstore(0x35, keccak256(0x55, 0xb7)) // keccak256(bytecode)\\r\\n            mstore(0x01, shl(96, address())) // registry address\\r\\n            mstore(0x15, salt) // salt\\r\\n\\r\\n            // Compute account address\\r\\n            let computed := keccak256(0x00, 0x55)\\r\\n\\r\\n            // If the account has not yet been deployed\\r\\n            if iszero(extcodesize(computed)) {\\r\\n                // Deploy account contract\\r\\n                let deployed := create2(0, 0x55, 0xb7, salt)\\r\\n\\r\\n                // Revert if the deployment fails\\r\\n                if iszero(deployed) {\\r\\n                    mstore(0x00, 0x20188a59) // `AccountCreationFailed()`\\r\\n                    revert(0x1c, 0x04)\\r\\n                }\\r\\n\\r\\n                // Store account address in memory before salt and chainId\\r\\n                mstore(0x6c, deployed)\\r\\n\\r\\n                // Emit the ERC6551AccountCreated event\\r\\n                log4(\\r\\n                    0x6c,\\r\\n                    0x60,\\r\\n                    // `ERC6551AccountCreated(address,address,bytes32,uint256,address,uint256)`\\r\\n                    0x79f19b3655ee38b1ce526556b7731a20c8f218fbda4a3990b6cc4172fdf88722,\\r\\n                    implementation,\\r\\n                    tokenContract,\\r\\n                    tokenId\\r\\n                )\\r\\n\\r\\n                // Return the account address\\r\\n                return(0x6c, 0x20)\\r\\n            }\\r\\n\\r\\n            // Otherwise, return the computed account address\\r\\n            mstore(0x00, shr(96, shl(96, computed)))\\r\\n            return(0x00, 0x20)\\r\\n        }\\r\\n    }\\r\\n\\r\\n    function account(\\r\\n        address implementation,\\r\\n        bytes32 salt,\\r\\n        uint256 chainId,\\r\\n        address tokenContract,\\r\\n        uint256 tokenId\\r\\n    ) external view returns (address) {\\r\\n        assembly {\\r\\n            // Silence unused variable warnings\\r\\n            pop(chainId)\\r\\n            pop(tokenContract)\\r\\n            pop(tokenId)\\r\\n\\r\\n            // Copy bytecode + constant data to memory\\r\\n            calldatacopy(0x8c, 0x24, 0x80) // salt, chainId, tokenContract, tokenId\\r\\n            mstore(0x6c, 0x5af43d82803e903d91602b57fd5bf3) // ERC-1167 footer\\r\\n            mstore(0x5d, implementation) // implementation\\r\\n            mstore(0x49, 0x3d60ad80600a3d3981f3363d3d373d3d3d363d73) // ERC-1167 constructor + header\\r\\n\\r\\n            // Copy create2 computation data to memory\\r\\n            mstore8(0x00, 0xff) // 0xFF\\r\\n            mstore(0x35, keccak256(0x55, 0xb7)) // keccak256(bytecode)\\r\\n            mstore(0x01, shl(96, address())) // registry address\\r\\n            mstore(0x15, salt) // salt\\r\\n\\r\\n            // Store computed account address in memory\\r\\n            mstore(0x00, shr(96, shl(96, keccak256(0x00, 0x55))))\\r\\n\\r\\n            // Return computed account address\\r\\n            return(0x00, 0x20)\\r\\n        }\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0xb0ea3e4c4506c1a60d11b3cd387826dd9cf1251077d4314249af00d580a51229\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061023b806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063246a00211461003b5780638a54c52f1461006a575b600080fd5b61004e6100493660046101b7565b61007d565b6040516001600160a01b03909116815260200160405180910390f35b61004e6100783660046101b7565b6100e1565b600060806024608c376e5af43d82803e903d91602b57fd5bf3606c5285605d52733d60ad80600a3d3981f3363d3d373d3d3d363d7360495260ff60005360b76055206035523060601b60015284601552605560002060601b60601c60005260206000f35b600060806024608c376e5af43d82803e903d91602b57fd5bf3606c5285605d52733d60ad80600a3d3981f3363d3d373d3d3d363d7360495260ff60005360b76055206035523060601b600152846015526055600020803b61018b578560b760556000f580610157576320188a596000526004601cfd5b80606c52508284887f79f19b3655ee38b1ce526556b7731a20c8f218fbda4a3990b6cc4172fdf887226060606ca46020606cf35b8060601b60601c60005260206000f35b80356001600160a01b03811681146101b257600080fd5b919050565b600080600080600060a086880312156101cf57600080fd5b6101d88661019b565b945060208601359350604086013592506101f46060870161019b565b94979396509194608001359291505056fea2646970667358221220718cac147ce53007c8c044896542a868e7a49e7a1662ef6855238166940489cd64736f6c63430008140033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c8063246a00211461003b5780638a54c52f1461006a575b600080fd5b61004e6100493660046101b7565b61007d565b6040516001600160a01b03909116815260200160405180910390f35b61004e6100783660046101b7565b6100e1565b600060806024608c376e5af43d82803e903d91602b57fd5bf3606c5285605d52733d60ad80600a3d3981f3363d3d373d3d3d363d7360495260ff60005360b76055206035523060601b60015284601552605560002060601b60601c60005260206000f35b600060806024608c376e5af43d82803e903d91602b57fd5bf3606c5285605d52733d60ad80600a3d3981f3363d3d373d3d3d363d7360495260ff60005360b76055206035523060601b600152846015526055600020803b61018b578560b760556000f580610157576320188a596000526004601cfd5b80606c52508284887f79f19b3655ee38b1ce526556b7731a20c8f218fbda4a3990b6cc4172fdf887226060606ca46020606cf35b8060601b60601c60005260206000f35b80356001600160a01b03811681146101b257600080fd5b919050565b600080600080600060a086880312156101cf57600080fd5b6101d88661019b565b945060208601359350604086013592506101f46060870161019b565b94979396509194608001359291505056fea2646970667358221220718cac147ce53007c8c044896542a868e7a49e7a1662ef6855238166940489cd64736f6c63430008140033",
+  "devdoc": {
+    "errors": {
+      "AccountCreationFailed()": [
+        {
+          "details": "The registry MUST revert with AccountCreationFailed error if the create2 operation fails."
+        }
+      ]
+    },
+    "events": {
+      "ERC6551AccountCreated(address,address,bytes32,uint256,address,uint256)": {
+        "details": "The registry MUST emit the ERC6551AccountCreated event upon successful account creation."
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "account(address,bytes32,uint256,address,uint256)": {
+        "details": "Returns the computed token bound account address for a non-fungible token.",
+        "returns": {
+          "_0": "The address of the token bound account"
+        }
+      },
+      "createAccount(address,bytes32,uint256,address,uint256)": {
+        "details": "Creates a token bound account for a non-fungible token. If account has already been created, returns the account address without calling create2. Emits ERC6551AccountCreated event.",
+        "returns": {
+          "_0": "The address of the token bound account"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}
