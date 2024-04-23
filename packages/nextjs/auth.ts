@@ -1,7 +1,5 @@
-import { headers } from "next/headers";
-import { IncomingHttpHeaders } from "http";
+import { cookies } from "next/headers";
 import Credentials from "next-auth/providers/credentials";
-import { getCsrfToken } from "next-auth/react";
 import { SiweMessage } from "siwe";
 
 export const authOptions = {
@@ -39,8 +37,9 @@ export const authOptions = {
             return null;
           }
 
-          const reqHeader = headers() as unknown as IncomingHttpHeaders;
-          if (siwe.nonce !== (await getCsrfToken({ req: { headers: reqHeader } }))) {
+          const csrfToken = cookies().get("next-auth.csrf-token")?.value.split("|")[0];
+
+          if (siwe.nonce !== csrfToken) {
             return null;
           }
 
