@@ -37,7 +37,9 @@ export const authOptions = {
             return null;
           }
 
-          const csrfToken = cookies().get("next-auth.csrf-token")?.value.split("|")[0];
+          const csrfToken =
+            cookies().get("next-auth.csrf-token")?.value.split("|")[0] || // localhost
+            cookies().get("__Host-next-auth.csrf-token")?.value.split("|")[0]; // vercel.app
 
           if (siwe.nonce !== csrfToken) {
             return null;
