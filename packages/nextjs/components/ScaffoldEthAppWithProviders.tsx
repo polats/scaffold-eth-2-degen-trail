@@ -1,8 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { RainbowKitProvider, darkTheme, lightTheme } from "@rainbow-me/rainbowkit";
+import { GetSiweMessageOptions, RainbowKitSiweNextAuthProvider } from "@rainbow-me/rainbowkit-siwe-next-auth";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import type { Session } from "next-auth";
+import { SessionProvider } from "next-auth/react";
 import { useTheme } from "next-themes";
 import { Toaster } from "react-hot-toast";
 import { WagmiProvider } from "wagmi";
@@ -13,6 +16,11 @@ import { ProgressBar } from "~~/components/scaffold-eth/ProgressBar";
 import { useNativeCurrencyPrice } from "~~/hooks/scaffold-eth";
 import { useGlobalState } from "~~/services/store/store";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
+
+type RainbowKitSiweNextAuthProviderProps = {
+  children: ReactNode;
+  session?: Session;
+};
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
   const price = useNativeCurrencyPrice();
@@ -36,6 +44,10 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+const getSiweMessageOptions: GetSiweMessageOptions = () => ({
+  statement: "Sign in to the RainbowKit + SIWE example app",
+});
+
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -44,7 +56,7 @@ export const queryClient = new QueryClient({
   },
 });
 
-export const ScaffoldEthAppWithProviders = ({ children }: { children: React.ReactNode }) => {
+export default function ScaffoldEthAppWithProviders({ children, session }: RainbowKitSiweNextAuthProviderProps) {
   const { resolvedTheme } = useTheme();
   const isDarkMode = resolvedTheme === "dark";
   const [mounted, setMounted] = useState(false);
@@ -54,16 +66,20 @@ export const ScaffoldEthAppWithProviders = ({ children }: { children: React.Reac
   }, []);
 
   return (
-    <WagmiProvider config={wagmiConfig}>
-      <QueryClientProvider client={queryClient}>
-        <ProgressBar />
-        <RainbowKitProvider
-          avatar={BlockieAvatar}
-          theme={mounted ? (isDarkMode ? darkTheme() : lightTheme()) : lightTheme()}
-        >
-          <ScaffoldEthApp>{children}</ScaffoldEthApp>
-        </RainbowKitProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
+    <SessionProvider refetchInterval={0} session={session}>
+      <WagmiProvider config={wagmiConfig}>
+        <QueryClientProvider client={queryClient}>
+          <ProgressBar />
+          <RainbowKitSiweNextAuthProvider getSiweMessageOptions={getSiweMessageOptions}>
+            <RainbowKitProvider
+              avatar={BlockieAvatar}
+              theme={mounted ? (isDarkMode ? darkTheme() : lightTheme()) : lightTheme()}
+            >
+              <ScaffoldEthApp>{children}</ScaffoldEthApp>
+            </RainbowKitProvider>
+          </RainbowKitSiweNextAuthProvider>
+        </QueryClientProvider>
+      </WagmiProvider>
+    </SessionProvider>
   );
-};
+}
