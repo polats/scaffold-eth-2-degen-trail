@@ -2,12 +2,16 @@
 
 import Link from "next/link";
 import type { NextPage } from "next";
+import { useSession } from "next-auth/react";
 import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Address } from "~~/components/scaffold-eth";
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
+  const { data: session } = useSession();
+
+  const sessionExpiry = new Date(session?.expires || 0).toLocaleString();
 
   return (
     <>
@@ -18,8 +22,14 @@ const Home: NextPage = () => {
             <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
           </h1>
           <div className="flex justify-center items-center space-x-2">
-            <p className="my-2 font-medium">Connected Address:</p>
+            <p className="my-2 font-medium">Account:</p>
             <Address address={connectedAddress} />
+            {session?.expires && (
+              <div className="flex justify-center items-center space-x-2">
+                <p className="my-2 font-medium">Session:</p>
+                <p>{sessionExpiry}</p>
+              </div>
+            )}
           </div>
           <p className="text-center text-lg">
             Get started by editing{" "}
